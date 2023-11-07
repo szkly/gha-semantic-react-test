@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/szkly/gha-semantic-react-test/compare/v1.0.0...v1.0.1) (2023-11-07)
+
+
+### Bug Fixes
+
+* **ci:** fix permission level for workflow ([98f409d](https://github.com/szkly/gha-semantic-react-test/commit/98f409d82beba6322f561e7b8e73cc03017069a9))
+
 # 1.0.0 (2023-11-07)
 
 
