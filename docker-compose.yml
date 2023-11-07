@@ -1,0 +1,16 @@
+---
+version: "3.8"
+services:
+  gha-react-test:
+    container_name: gha-react-test
+    image: ghcr.io/szkly/gha-react-test
+    build: .
+    ports:
+      - 3000:80
+    networks:
+      - gha-react
+    restart: unless-stopped
+
+networks:
+  gha-react:
+    name: gha-react
