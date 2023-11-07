@@ -6,11 +6,15 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   semantic-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     outputs:
       release_published: ${{ steps.semantic.outputs.new_release_published }}
       new_semver: ${{ steps.semantic.outputs.new_release_git_tag }}
