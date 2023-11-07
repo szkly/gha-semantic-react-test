@@ -37,6 +37,8 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
 
     needs: semantic-release
     if: needs.semantic-release.outputs.release_published
@@ -57,7 +59,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            szkly/gha-react-test
+            ghcr.io/${{ github.repository_owner }}/gha-react-test
           labels: |
             org.opencontainers.image.title=gha-react-test
             org.opencontainers.image.description=A simple React Vite application, used to showcase GHA
@@ -65,7 +67,7 @@ jobs:
             org.opencontainers.image.source=${{ github.repositoryUrl }}
             org.opencontainers.image.version=${{ needs.semantic-release.outputs.new_semver }}
           tags: |
-            type=semver,pattern={{version}}
+            type=semver,pattern={{version}},value=${{ needs.semantic-release.outputs.new_semver }}
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
